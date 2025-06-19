@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Software News Tab</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .news-container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .tab-header {
+      display: flex;
+      border-bottom: 2px solid #ddd;
+      background-color: #f8f8f8;
+    }
+
+    .tab-button {
+      flex: 1;
+      padding: 12px 16px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold;
+      color: #555;
+      transition: background-color 0.3s ease;
+    }
+
+    .tab-button.active {
+      background-color: #0078d4;
+      color: #fff;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .news-item {
+      margin-bottom: 15px;
+    }
+
+    .news-item h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #0078d4;
+    }
+
+    .news-item p {
+      margin: 5px 0 0;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="news-container">
+    <div class="tab-header">
+      <div class="tab-button active" onclick="switchTab(event, 'updates')">Updates</div>
+      <div class="tab-button" onclick="switchTab(event, 'alerts')">Alerts</div>
+      <div class="tab-button" onclick="switchTab(event, 'tips')">Tips</div>
+    </div>
+
+    <div id="updates" class="tab-content active">
+      <div class="news-item">
+        <h3>v3.2.1 Released</h3>
+        <p>Bug fixes, improved performance and UI enhancements.</p>
+      </div>
+      <div class="news-item">
+        <h3>Database Sync Improved</h3>
+        <p>Synchronization speed increased by 40% in enterprise builds.</p>
+      </div>
+    </div>
+
+    <div id="alerts" class="tab-content">
+      <div class="news-item">
+        <h3>Server Maintenance</h3>
+        <p>Scheduled downtime on 21st June, 2:00AM - 4:00AM IST.</p>
+      </div>
+      <div class="news-item">
+        <h3>Security Patch</h3>
+        <p>Update your software to patch recent security vulnerabilities.</p>
+      </div>
+    </div>
+
+    <div id="tips" class="tab-content">
+      <div class="news-item">
+        <h3>New Shortcuts</h3>
+        <p>Use Ctrl + Shift + U to trigger instant update check.</p>
+      </div>
+      <div class="news-item">
+        <h3>Theme Customization</h3>
+        <p>Go to Settings > Appearance to switch to dark mode.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(evt, tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-button');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
